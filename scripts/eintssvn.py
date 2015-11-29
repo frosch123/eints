@@ -3,7 +3,7 @@
 import subprocess, re, os.path, sys, fcntl, getopt, datetime
 
 # Connecting to eints
-eints_base_url = "http://localhost:7080"
+eints_base_url = "http://localhost:8000"
 
 # Eints authentification
 eints_login_file = "user.cfg"
@@ -13,7 +13,7 @@ svn_login = "translators"
 commit_message = "-Update from Eints:\n"
 
 # External tools
-lang_sync_command = "lang_sync"
+lang_sync_command = "./lang_sync"
 svn_command = "svn"
 
 # Tempoary files
