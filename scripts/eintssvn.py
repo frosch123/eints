@@ -67,8 +67,8 @@ def print_info(msg):
 
     print("[{:%Y-%m-%d %H:%M:%S}] {}".format(datetime.datetime.now(), msg))
 
-is_update_lang = re.compile(r"\w+ +[\w/\\]+\.txt\Z")
-is_modfied_lang = re.compile(r"M +[\w/\\]+\.txt\Z")
+is_update_lang = re.compile(r"\w+ +[\w\-/\\]+\.txt\Z")
+is_modified_lang = re.compile(r"M +[\w\-/\\]+\.txt\Z")
 
 def svn_status(working_copy):
     """
@@ -93,7 +93,7 @@ def svn_status(working_copy):
     for l in msg.splitlines():
         if len(l) == 0:
             continue
-        if is_modfied_lang.match(l):
+        if is_modified_lang.match(l):
             modified = True
         else:
             raise Exception("Invalid checkout status: {}".format(l))
