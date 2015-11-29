@@ -22,12 +22,11 @@
             <div class="navbar-inner">
                 <ul class="nav">
                     <li><a href="/"><i class="icon-home"></i> Home</a></li>
-                    <li><a href="/languages"><i class="icon-list-alt"></i> Languages</a></li>
-                    <li><a href="/projects"><i class="icon-list-alt"></i> Projects</a></li>
-                    <li><a href="/newproject"><i class="icon-plus-sign"></i> New Project</a></li>
+                    <li><a href="/project/openttd-trunk"><i class="icon-list-alt"></i> OpenTTD Trunk</a></li>
                 </ul>
                 <ul class="nav pull-right">
                     <li><a target="_blank" href="http://bundles.openttdcoop.org/eints/nightlies/LATEST/docs/usage.html"><i class="icon-book"></i> Manual</a></li>
+                    <li><a href="https://account.openttd.org/en/signup"><i class="icon-asterisk"></i> Register</a></li>
                     <li><a href="/userprofile"><i class="icon-user"></i> Login/Profile</a></li>
                 </ul>
             </div>
