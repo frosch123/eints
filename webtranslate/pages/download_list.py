@@ -38,7 +38,7 @@ def download_list(userauth, prjname):
 
     pdata = pmd.pdata
     response.content_type = 'text/plain; charset=UTF-8'
-    lines = ['isocode,base_isocode,changetime']
+    lines = ['isocode,name,base_isocode,changetime']
     for lng, ldata in pdata.languages.items():
         tstamp = get_newest_change(ldata)
         if tstamp is None:
@@ -51,7 +51,7 @@ def download_list(userauth, prjname):
         else:
             parent_lng = pdata.base_language
 
-        line = "{},{},{}".format(ldata.name, parent_lng, text)
+        line = "{},{},{},{}".format(ldata.name, ldata.info.name, parent_lng, text)
         lines.append(line)
 
     return '\n'.join(lines) + '\n'
