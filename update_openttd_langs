@@ -18,6 +18,24 @@ fi
 
 echo "Checking stable languages"
 scripts/filter_update_langs ${WORKDIR}/src/lang ${STABLEDIR}
+stable_exit=$?
 
 echo "Checking unstable languages"
 scripts/filter_update_langs ${WORKDIR}/src/lang/unfinished ${UNSTABLEDIR}
+unstable_exit=$?
+
+
+# Return exit code if there was an error
+if [ $stable_exit -ne 0 ] && [ $stable_exit -ne 3 ]; then
+	exit 1
+fi
+if [ $unstable_exit -ne 0 ] && [ $unstable_exit -ne 3 ]; then
+	exit 2
+fi
+
+
+# If sub-scripts indicate we need to restart eints, do so
+if [ $stable_exit -eq 3 ] || [ $unstable_exit -eq 3 ]; then
+	echo "Restarting eints ..."
+	sudo /etc/init.d/eints restart
+fi
