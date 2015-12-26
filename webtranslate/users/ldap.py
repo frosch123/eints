@@ -8,6 +8,7 @@ Note that the groups resp. group membership is not project specific.
 """
 
 from webtranslate import rights, userauth
+from webtranslate.newgrf import language_info
 
 import traceback
 
@@ -51,6 +52,9 @@ class LdapUserAuthentication(userauth.UserAuthentication):
         if lngname is not None and accesses['TRANSLATOR'] == True:
             group = translator_groups.get(lngname)
             if group is not None and group != "" and group in self.groups: return True
+
+            lng = language_info.isocode[lngname]
+            if "Translator-{}".format(lng.name) in self.groups: return True
 
         if accesses['OWNER'] == True:  # 'prjname is not None' has been already established.
             if owner_group is not None and owner_group != "" and owner_group in self.groups: return True
