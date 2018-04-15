@@ -9,8 +9,8 @@ eints_base_url = "http://localhost:8000"
 eints_login_file = "user.cfg"
 
 # Commit credentials
-commit_user = "translator@openttd.org"
-commit_message = "Update: Translations\n"
+commit_user = "translators@openttd.org"
+commit_message = "Update: Translations from eints\n"
 
 # Source structure
 lang_dir = "src/lang"
